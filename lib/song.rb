@@ -8,8 +8,7 @@ class Song
   @@songs = []
 
   def initialize
-    super
-    @songs = []
+    @@songs << self
   end
 
   def self.find_by_name(name)
@@ -19,20 +18,12 @@ class Song
   def self.all
     @@songs
   end
-########################
-  #def self.reset_all
-  #  self.all.clear
-  #end
 
-  #def self.count
-   # self.all.count
-  #end
-###########################
-  def artist=(artist)
-    @artist = artist
+  def self.reset_all
+    self.all.clear
   end
 
-  def to_param
-    name.downcase.gsub(' ', '-')
+  def self.count
+    self.all.count
   end
-end
+
